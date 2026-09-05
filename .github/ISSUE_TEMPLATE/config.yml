@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Bugs in the API, web or mobile app
+    url: https://github.com/jeronimotech
+    about: Open the issue in the repo of the component (opentransit-api, opentransit-web, opentransit-mobile).
+  - name: Questions and ideas
+    url: https://github.com/jeronimotech/opentransit/discussions
+    about: Use Discussions for anything that is not a concrete bug or docs fix.

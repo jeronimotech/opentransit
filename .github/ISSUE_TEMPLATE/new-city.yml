@@ -1,0 +1,29 @@
+name: New city
+description: Propose adding a city (we will help you through the config and data checks)
+labels: [new-city]
+body:
+  - type: input
+    id: city
+    attributes: { label: City and country }
+    validations: { required: true }
+  - type: input
+    id: gtfs
+    attributes: { label: GTFS static feed URL }
+    validations: { required: true }
+  - type: input
+    id: rt
+    attributes: { label: GTFS-Realtime URLs (positions / trip updates / alerts), if any }
+  - type: input
+    id: gbfs
+    attributes: { label: Bike/scooter share GBFS URL(s), if any }
+  - type: textarea
+    id: notes
+    attributes: { label: Who publishes the data, license, and anything we should know (fares, transfers, accessibility) }
+  - type: checkboxes
+    id: role
+    attributes:
+      label: Your role
+      options:
+        - label: I work at the transit agency or city
+        - label: I am a developer who wants to run it
+        - label: I can help validate the feed

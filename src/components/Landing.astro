@@ -1,0 +1,240 @@
+---
+import '../styles/landing.css';
+export interface Props { lang: 'es' | 'en'; }
+const { lang } = Astro.props;
+const base = '/opentransit';
+const docs = lang === 'es' ? `${base}/docs/` : `${base}/en/docs/`;
+const otherLang = lang === 'es' ? { href: `${base}/en/`, label: 'English' } : { href: `${base}/`, label: 'Español' };
+const gh = 'https://github.com/jeronimotech';
+const t = lang === 'es' ? {
+  title: 'opentransit — planeador de viajes multimodal, multiciudad y de código abierto',
+  desc: 'Toma los datos abiertos que tu ciudad ya publica (GTFS, GTFS-Realtime, GBFS, OpenStreetMap) y entrega una app web, una app móvil y un panel de administración. Sin llaves de API. Licencia MIT.',
+  nav: { features: 'Funciones', arch: 'Arquitectura', cities: 'Ciudades', repos: 'Repositorios', docs: 'Docs' },
+  hero: { kicker: 'Código abierto · MIT', h1a: 'Planeación de viajes', h1b: 'multimodal, para cualquier ciudad.',
+    p: 'opentransit convierte los datos abiertos de transporte de una ciudad en apps que la gente quiere usar: bus, cable, bici pública y a pie en un mismo itinerario, con buses en vivo y tarifas estimadas. Sin llaves de API, sin lock-in.',
+    cta1: 'Leer la documentación', cta2: 'Ver el código' },
+  shots: { title: 'Así se ve, con datos reales de Bogotá', items: ['Home "map first" en la web', 'Ubica tu bus: próximos buses con En vivo / Por programación', 'Itinerario con bici pública y bus', 'Home en el móvil', 'Tablero de llegadas', 'Estaciones de bicis públicas'] },
+  features: { title: 'Qué obtienes', items: [
+    ['Planeador multimodal', 'OpenTripPlanner 2 combina bus, cable, tren, bici propia, bici compartida y caminata en un solo itinerario, con hora de salida o llegada y opción accesible.'],
+    ['Buses en vivo', 'GTFS-Realtime servido una sola vez por la API y repartido por SSE con deltas; marcadores interpolados y coloreados por ETA.'],
+    ['Tablero y "Ubica tu bus"', 'Próximas llegadas agrupadas por ruta y el flujo estación → ruta → próximos buses, siempre diciendo qué es en vivo y qué es programado.'],
+    ['Bicis compartidas (GBFS)', 'Cualquier sistema con GBFS entra por configuración: tramos de alquiler con disponibilidad, precio y estaciones en el mapa. N redes por ciudad.'],
+    ['Alertas y frescura', 'Alertas del feed con severidad, carrusel en el inicio, y etiquetas honestas cuando el tiempo real falla.'],
+    ['Tarifa estimada', 'Cuando el GTFS no trae tarifas, una tarifa plana configurable por ciudad, siempre marcada como estimada.'],
+    ['Favoritos y recientes', 'Casa, Trabajo, paradas y rutas con contexto en vivo. Locales al dispositivo, sin cuenta.'],
+    ['Panel de administración', 'Tarifas, banderas, enlaces, servicios, marca, movilidad y landing editables en caliente, con historial.'],
+    ['Landing por ciudad', 'Una página pública "white-label" generada desde la configuración de cada ciudad.'],
+    ['PWA + iOS + Android', 'App web instalable y app Flutter con enlaces universales, modo "Iniciar viaje" y actualización forzada remota.'],
+  ] },
+  arch: { title: 'Arquitectura', p: 'Tres repositorios independientes, un enrutador por ciudad y datos abiertos como única entrada. Una instancia de la API sirve varias ciudades; cada ciudad es un archivo YAML.',
+    nodes: { data: 'Datos abiertos', otp: 'OpenTripPlanner 2', api: 'opentransit-api', pg: 'PostGIS', web: 'opentransit-web', mob: 'opentransit-mobile', admin: 'admin + landing' } },
+  data: { title: 'Construido sobre datos abiertos', items: [['GTFS', 'rutas, paradas, horarios'], ['GTFS-Realtime', 'posiciones, trip updates, alertas'], ['GBFS', 'bicis y patinetas compartidas'], ['OpenStreetMap', 'calles, ciclorrutas, servicios; mapa base de OpenFreeMap']] },
+  cities: { title: 'Ciudades', live: 'En vivo', bogota: 'TransMilenio, SITP y TransMiCable (GTFS + GTFS-Realtime, ~6.000 buses) y el sistema de bicicletas públicas (GBFS, 252 estaciones).', add: 'Añade tu ciudad', addp: 'Un YAML, un feed GTFS y un extracto de OpenStreetMap. Te acompañamos en el proceso.', addcta: 'Cómo añadir una ciudad' },
+  repos: { title: 'Repositorios', items: [
+    ['opentransit-api', 'Backend multi-tenant: GTFS, GTFS-RT, GBFS, OpenTripPlanner, configuración editable.', 'Python · FastAPI · PostGIS'],
+    ['opentransit-web', 'App web (PWA), panel de administración y landing por ciudad.', 'Next.js · MapLibre'],
+    ['opentransit-mobile', 'App iOS y Android.', 'Flutter · MapLibre'],
+  ] },
+  why: { title: 'Por qué', items: [['Datos abiertos', 'Solo consume feeds públicos con licencia abierta. Si tu ciudad publica GTFS, ya puede usarlo.'], ['Sin lock-in', 'Nada propietario en el camino: OpenTripPlanner, MapLibre, OpenFreeMap, Photon. Cada pieza es reemplazable por configuración.'], ['Las ciudades son dueñas', 'Cada ciudad despliega su propia instancia, con su marca, su panel y sus datos.'], ['Honesto con el usuario', 'Lo estimado se muestra como estimado; lo no verificado, como no verificado.']] },
+  contrib: { title: '¿Te unes?', p: 'Ciudades, agencias, desarrolladores y diseñadores. Abre un issue, propón una ciudad o envía un pull request.', cta: 'Guía para contribuir', cta2: 'Discusiones' },
+  footer: { license: 'Código MIT · Docs CC BY 4.0', by: 'Un proyecto de' },
+} : {
+  title: 'opentransit — open-source, multi-city, multimodal trip planning',
+  desc: 'Take the open data your city already publishes (GTFS, GTFS-Realtime, GBFS, OpenStreetMap) and get a web app, a mobile app and an admin panel. No API keys. MIT licensed.',
+  nav: { features: 'Features', arch: 'Architecture', cities: 'Cities', repos: 'Repositories', docs: 'Docs' },
+  hero: { kicker: 'Open source · MIT', h1a: 'Multimodal trip planning', h1b: 'for any city.',
+    p: 'opentransit turns a city\'s open transit data into apps people want to use: bus, cable car, shared bikes and walking in one itinerary, with live vehicles and estimated fares. No API keys, no lock-in.',
+    cta1: 'Read the docs', cta2: 'See the code' },
+  shots: { title: 'What it looks like, on live Bogotá data', items: ['Map-first home on the web', 'Locate my bus: next buses, live vs scheduled', 'Itinerary mixing shared bike and bus', 'Mobile home', 'Arrival board', 'Shared-bike stations'] },
+  features: { title: 'What you get', items: [
+    ['Multimodal planner', 'OpenTripPlanner 2 combines bus, cable car, rail, own bike, shared bike and walking in one itinerary, with depart/arrive time and an accessible option.'],
+    ['Live vehicles', 'GTFS-Realtime fetched once by the API and fanned out over SSE with deltas; markers interpolated and tinted by ETA.'],
+    ['Arrival board & "Locate my bus"', 'Next arrivals grouped by route and the station → route → next buses flow, always saying what is live and what is scheduled.'],
+    ['Shared bikes (GBFS)', 'Any GBFS system plugs in through configuration: rental legs with availability, price and stations on the map. N networks per city.'],
+    ['Alerts & freshness', 'Feed alerts with severity, a home carousel, and honest labels when realtime fails.'],
+    ['Estimated fares', 'When the GTFS has no fares, a configurable flat fare per city, always labelled as estimated.'],
+    ['Favorites & recents', 'Home, Work, stops and routes with live context. Local to the device, no account.'],
+    ['Admin panel', 'Fares, flags, links, services, brand, mobility and landing editable at runtime, with history.'],
+    ['Per-city landing', 'A white-label public page generated from each city\'s configuration.'],
+    ['PWA + iOS + Android', 'Installable web app and a Flutter app with universal links, follow-along mode and remote forced updates.'],
+  ] },
+  arch: { title: 'Architecture', p: 'Three independent repositories, one router per city and open data as the only input. One API instance serves several cities; each city is a YAML file.',
+    nodes: { data: 'Open data', otp: 'OpenTripPlanner 2', api: 'opentransit-api', pg: 'PostGIS', web: 'opentransit-web', mob: 'opentransit-mobile', admin: 'admin + landing' } },
+  data: { title: 'Built on open data', items: [['GTFS', 'routes, stops, timetables'], ['GTFS-Realtime', 'positions, trip updates, alerts'], ['GBFS', 'shared bikes and scooters'], ['OpenStreetMap', 'streets, bike lanes, services; OpenFreeMap basemap']] },
+  cities: { title: 'Cities', live: 'Live', bogota: 'TransMilenio, SITP and TransMiCable (GTFS + GTFS-Realtime, ~6,000 buses) and the public bike system (GBFS, 252 stations).', add: 'Add your city', addp: 'One YAML, a GTFS feed and an OpenStreetMap extract. We will help you through it.', addcta: 'How to add a city' },
+  repos: { title: 'Repositories', items: [
+    ['opentransit-api', 'Multi-tenant backend: GTFS, GTFS-RT, GBFS, OpenTripPlanner, editable config.', 'Python · FastAPI · PostGIS'],
+    ['opentransit-web', 'Web app (PWA), admin panel and per-city landing.', 'Next.js · MapLibre'],
+    ['opentransit-mobile', 'iOS and Android app.', 'Flutter · MapLibre'],
+  ] },
+  why: { title: 'Why', items: [['Open data', 'Only public, openly licensed feeds. If your city publishes GTFS, it can use it today.'], ['No lock-in', 'Nothing proprietary in the path: OpenTripPlanner, MapLibre, OpenFreeMap, Photon. Every piece is replaceable by configuration.'], ['Cities own it', 'Each city deploys its own instance, with its brand, its panel and its data.'], ['Honest with users', 'Estimates are shown as estimates; unverified data as unverified.']] },
+  contrib: { title: 'Join in', p: 'Cities, agencies, developers and designers. Open an issue, propose a city or send a pull request.', cta: 'Contributing guide', cta2: 'Discussions' },
+  footer: { license: 'Code MIT · Docs CC BY 4.0', by: 'A project by' },
+};
+const shots = [
+  ['web-home.jpg', 'web'], ['web-next.jpg', 'web'], ['web-bike.jpg', 'web'],
+  ['mobile-home.jpg', 'mobile'], ['mobile-board.jpg', 'mobile'], ['mobile-bikes.jpg', 'mobile'],
+];
+const repoLinks: Record<string, string> = { 'opentransit-api': `${gh}/opentransit-api`, 'opentransit-web': `${gh}/opentransit-web`, 'opentransit-mobile': `${gh}/opentransit-mobile` };
+const addCity = lang === 'es' ? `${docs}adding-a-city/` : `${docs}adding-a-city/`;
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{t.title}</title>
+  <meta name="description" content={t.desc} />
+  <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+  <link rel="alternate" hreflang="es" href={`https://jeronimotech.github.io${base}/`} />
+  <link rel="alternate" hreflang="en" href={`https://jeronimotech.github.io${base}/en/`} />
+  <meta property="og:title" content={t.title} />
+  <meta property="og:description" content={t.desc} />
+  <meta property="og:image" content={`https://jeronimotech.github.io${base}/shots/web-home.jpg`} />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body class="bg-white text-ink antialiased">
+  <header class="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3" aria-label="main">
+      <a href={`${base}/${lang === 'en' ? 'en/' : ''}`} class="flex items-center gap-2 font-semibold"><img src={`${base}/favicon.svg`} alt="" width="28" height="28" /> opentransit</a>
+      <div class="hidden items-center gap-6 text-sm md:flex">
+        <a href="#features" class="hover:text-brand-dark">{t.nav.features}</a>
+        <a href="#architecture" class="hover:text-brand-dark">{t.nav.arch}</a>
+        <a href="#cities" class="hover:text-brand-dark">{t.nav.cities}</a>
+        <a href="#repos" class="hover:text-brand-dark">{t.nav.repos}</a>
+        <a href={docs} class="rounded-md bg-ink px-3 py-1.5 text-white hover:bg-slate-700">{t.nav.docs}</a>
+        <a href={otherLang.href} class="text-slate-500 hover:text-ink" lang={lang === 'es' ? 'en' : 'es'}>{otherLang.label}</a>
+      </div>
+      <div class="flex items-center gap-3 md:hidden">
+        <a href={docs} class="rounded-md bg-ink px-3 py-1.5 text-sm text-white">{t.nav.docs}</a>
+        <a href={otherLang.href} class="text-sm text-slate-500">{otherLang.label}</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="mx-auto max-w-6xl px-4 pb-12 pt-16 md:pt-24">
+      <p class="mb-3 inline-block rounded-full border border-brand/40 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.hero.kicker}</p>
+      <h1 class="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">{t.hero.h1a} <span class="text-brand-dark">{t.hero.h1b}</span></h1>
+      <p class="mt-6 max-w-2xl text-lg text-slate-600">{t.hero.p}</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={docs} class="rounded-lg bg-brand-dark px-5 py-3 font-semibold text-white hover:bg-brand">{t.hero.cta1}</a>
+        <a href={gh} class="rounded-lg border border-slate-300 px-5 py-3 font-semibold hover:bg-slate-50">{t.hero.cta2}</a>
+      </div>
+    </section>
+
+    <section class="bg-slate-50 py-12" aria-labelledby="shots">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 id="shots" class="text-2xl font-bold">{t.shots.title}</h2>
+        <div class="mt-6 flex snap-x gap-4 overflow-x-auto pb-4">
+          {shots.map(([file, kind], i) => (
+            <figure class={`shrink-0 snap-start overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm ${kind === 'web' ? 'w-[520px] max-w-[85vw]' : 'w-[220px]'}`}>
+              <img src={`${base}/shots/${file}`} alt={t.shots.items[i]} loading={i < 2 ? 'eager' : 'lazy'} class="block w-full" />
+              <figcaption class="px-3 py-2 text-xs text-slate-600">{t.shots.items[i]}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-3xl font-bold">{t.features.title}</h2>
+      <ul class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {t.features.items.map(([h, p]) => (
+          <li class="rounded-xl border border-slate-200 p-5"><h3 class="font-semibold">{h}</h3><p class="mt-2 text-sm text-slate-600">{p}</p></li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="architecture" class="bg-ink py-16 text-white">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-3xl font-bold">{t.arch.title}</h2>
+        <p class="mt-3 max-w-2xl text-slate-300">{t.arch.p}</p>
+        <svg class="mt-8 w-full" viewBox="0 0 960 300" role="img" aria-label={t.arch.title}>
+          <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker></defs>
+          <g font-family="system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="middle">
+            <rect x="20" y="40" width="200" height="220" rx="12" fill="#1e293b" stroke="#334155"/>
+            <text x="120" y="68" font-weight="700">{t.arch.nodes.data}</text>
+            <text x="120" y="100" fill="#cbd5e1">GTFS</text><text x="120" y="128" fill="#cbd5e1">GTFS-Realtime</text><text x="120" y="156" fill="#cbd5e1">GBFS</text><text x="120" y="184" fill="#cbd5e1">OpenStreetMap</text>
+            <rect x="290" y="40" width="200" height="90" rx="12" fill="#1e293b" stroke="#22c55e"/>
+            <text x="390" y="78" font-weight="700">{t.arch.nodes.otp}</text><text x="390" y="104" fill="#cbd5e1" font-size="12">graph + RT/GBFS updaters</text>
+            <rect x="290" y="160" width="200" height="100" rx="12" fill="#1e293b" stroke="#22c55e"/>
+            <text x="390" y="196" font-weight="700">{t.arch.nodes.api}</text><text x="390" y="222" fill="#cbd5e1" font-size="12">FastAPI · {t.arch.nodes.pg}</text><text x="390" y="242" fill="#cbd5e1" font-size="12">/v1/cities/&#123;city&#125;/…</text>
+            <rect x="620" y="40" width="200" height="60" rx="12" fill="#1e293b" stroke="#ef4444"/><text x="720" y="76" font-weight="700">{t.arch.nodes.web}</text>
+            <rect x="620" y="120" width="200" height="60" rx="12" fill="#1e293b" stroke="#ef4444"/><text x="720" y="156" font-weight="700">{t.arch.nodes.mob}</text>
+            <rect x="620" y="200" width="200" height="60" rx="12" fill="#1e293b" stroke="#ef4444"/><text x="720" y="236" font-weight="700">{t.arch.nodes.admin}</text>
+          </g>
+          <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arr)">
+            <path d="M220 85 H290"/><path d="M220 210 H290"/><path d="M390 130 V160"/>
+            <path d="M490 210 C560 210 560 70 620 70"/><path d="M490 210 C560 210 560 150 620 150"/><path d="M490 210 C560 210 560 230 620 230"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-3xl font-bold">{t.data.title}</h2>
+      <ul class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {t.data.items.map(([h, p]) => (<li class="rounded-xl bg-slate-50 p-5"><h3 class="font-semibold">{h}</h3><p class="mt-1 text-sm text-slate-600">{p}</p></li>))}
+      </ul>
+    </section>
+
+    <section id="cities" class="bg-slate-50 py-16">
+      <div class="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-2">
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.live}</span></div>
+          <h3 class="mt-2 text-2xl font-bold">Bogotá, Colombia</h3>
+          <p class="mt-2 text-slate-600">{t.cities.bogota}</p>
+        </div>
+        <div class="rounded-xl border border-dashed border-slate-300 p-6">
+          <h3 class="text-2xl font-bold">{t.cities.add}</h3>
+          <p class="mt-2 text-slate-600">{t.cities.addp}</p>
+          <a href={addCity} class="mt-4 inline-block rounded-lg bg-ink px-4 py-2 font-semibold text-white hover:bg-slate-700">{t.cities.addcta}</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="repos" class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-3xl font-bold">{t.repos.title}</h2>
+      <ul class="mt-8 grid gap-6 md:grid-cols-3">
+        {t.repos.items.map(([name, p, stack]) => (
+          <li class="rounded-xl border border-slate-200 p-5">
+            <a href={repoLinks[name]} class="font-mono font-semibold text-brand-dark hover:underline">{name}</a>
+            <p class="mt-2 text-sm text-slate-600">{p}</p>
+            <p class="mt-2 text-xs text-slate-500">{stack}</p>
+            <p class="mt-3 flex flex-wrap gap-2">
+              <img src={`https://github.com/jeronimotech/${name}/actions/workflows/ci.yml/badge.svg`} alt="CI status" height="20" />
+              <img src={`https://img.shields.io/github/license/jeronimotech/${name}`} alt="License" height="20" />
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="bg-slate-50 py-16">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-3xl font-bold">{t.why.title}</h2>
+        <ul class="mt-8 grid gap-6 sm:grid-cols-2">
+          {t.why.items.map(([h, p]) => (<li><h3 class="font-semibold">{h}</h3><p class="mt-1 text-sm text-slate-600">{p}</p></li>))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 py-16 text-center">
+      <h2 class="text-3xl font-bold">{t.contrib.title}</h2>
+      <p class="mx-auto mt-3 max-w-xl text-slate-600">{t.contrib.p}</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a href={`${docs}contributing/`} class="rounded-lg bg-brand-dark px-5 py-3 font-semibold text-white hover:bg-brand">{t.contrib.cta}</a>
+        <a href={`${gh}/opentransit/discussions`} class="rounded-lg border border-slate-300 px-5 py-3 font-semibold hover:bg-slate-50">{t.contrib.cta2}</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 py-8 text-sm text-slate-500">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4">
+      <p>{t.footer.license} · {t.footer.by} <a href={gh} class="text-ink hover:underline">jeronimotech</a></p>
+      <p class="flex gap-4"><a href={`${gh}/opentransit`} class="hover:text-ink">GitHub</a><a href={`${gh}/opentransit/discussions`} class="hover:text-ink">Discussions</a><a href={docs} class="hover:text-ink">Docs</a></p>
+    </div>
+  </footer>
+</body>
+</html>
