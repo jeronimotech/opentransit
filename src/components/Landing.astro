@@ -126,7 +126,7 @@ const addCity = lang === 'es' ? `${docs}adding-a-city/` : `${docs}adding-a-city/
     <section class="bg-slate-50 py-12" aria-labelledby="shots">
       <div class="mx-auto max-w-6xl px-4">
         <h2 id="shots" class="text-2xl font-bold">{t.shots.title}</h2>
-        <div class="mt-6 flex snap-x gap-4 overflow-x-auto pb-4">
+        <div class="mt-6 flex snap-x items-start gap-4 overflow-x-auto pb-4">
           {shots.map(([file, kind], i) => (
             <figure class={`shrink-0 snap-start overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm ${kind === 'web' ? 'w-[520px] max-w-[85vw]' : 'w-[220px]'}`}>
               <img src={`${base}/shots/${file}`} alt={t.shots.items[i]} loading={i < 2 ? 'eager' : 'lazy'} class="block w-full" />
