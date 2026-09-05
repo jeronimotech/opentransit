@@ -1,8 +1,11 @@
 // Screenshots of the built site for the README. Needs a preview server: `npm run preview` (port 4321).
 // Uses playwright from this repo if installed, else from a sibling opentransit-web checkout.
 const BASE = process.env.BASE_URL ?? 'http://localhost:4321/opentransit/';
-let pw; try { pw = await import('playwright'); } catch { pw = await import('../../opentransit-web/node_modules/playwright/index.mjs'); }
-const browser = await pw.chromium.launch();
+import { createRequire } from 'node:module';
+let pw;
+for (const spec of ['playwright', '@playwright/test']) { try { pw = await import(spec); break; } catch {} }
+if (!pw) { const req = createRequire(new URL('../../opentransit-web/package.json', import.meta.url)); pw = await import(req.resolve('@playwright/test')); }
+const chromium = pw.chromium ?? pw.default?.chromium; const browser = await chromium.launch();
 const shots = [
   ['landing-desktop', BASE, { width: 1280, height: 800 }],
   ['landing-mobile', BASE, { width: 390, height: 844 }],
