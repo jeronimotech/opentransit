@@ -6,13 +6,18 @@ const base = '/opentransit';
 const docs = lang === 'es' ? `${base}/docs/` : `${base}/en/docs/`;
 const otherLang = lang === 'es' ? { href: `${base}/en/`, label: 'English' } : { href: `${base}/`, label: 'Español' };
 const gh = 'https://github.com/jeronimotech';
+const heroRepos = [
+  { name: 'opentransit-api', short: 'api' },
+  { name: 'opentransit-web', short: 'web' },
+  { name: 'opentransit-mobile', short: 'mobile' },
+];
 const t = lang === 'es' ? {
   title: 'opentransit — planeador de viajes multimodal, multiciudad y de código abierto',
   desc: 'Toma los datos abiertos que tu ciudad ya publica (GTFS, GTFS-Realtime, GBFS, OpenStreetMap) y entrega una app web, una app móvil y un panel de administración. Sin llaves de API. Licencia MIT.',
   nav: { features: 'Funciones', arch: 'Arquitectura', cities: 'Ciudades', repos: 'Repositorios', docs: 'Docs' },
   hero: { kicker: 'Código abierto · MIT', h1a: 'Planeación de viajes', h1b: 'multimodal, para cualquier ciudad.',
     p: 'opentransit convierte los datos abiertos de transporte de una ciudad en apps que la gente quiere usar: bus, cable, bici pública y a pie en un mismo itinerario, con buses en vivo y tarifas estimadas. Sin llaves de API, sin lock-in.',
-    cta1: 'Leer la documentación', cta2: 'Ver el código' },
+    cta1: 'Leer la documentación', cta2: 'El código:' },
   shots: { title: 'Así se ve, con datos reales de Bogotá', items: ['Home "map first" en la web', 'Ubica tu bus: próximos buses con En vivo / Por programación', 'Itinerario con bici pública y bus', 'Home en el móvil', 'Tablero de llegadas', 'Estaciones de bicis públicas'] },
   features: { title: 'Qué obtienes', items: [
     ['Planeador multimodal', 'OpenTripPlanner 2 combina bus, cable, tren, bici propia, bici compartida y caminata en un solo itinerario, con hora de salida o llegada y opción accesible.'],
@@ -44,7 +49,7 @@ const t = lang === 'es' ? {
   nav: { features: 'Features', arch: 'Architecture', cities: 'Cities', repos: 'Repositories', docs: 'Docs' },
   hero: { kicker: 'Open source · MIT', h1a: 'Multimodal trip planning', h1b: 'for any city.',
     p: 'opentransit turns a city\'s open transit data into apps people want to use: bus, cable car, shared bikes and walking in one itinerary, with live vehicles and estimated fares. No API keys, no lock-in.',
-    cta1: 'Read the docs', cta2: 'See the code' },
+    cta1: 'Read the docs', cta2: 'The code:' },
   shots: { title: 'What it looks like, on live Bogotá data', items: ['Map-first home on the web', 'Locate my bus: next buses, live vs scheduled', 'Itinerary mixing shared bike and bus', 'Mobile home', 'Arrival board', 'Shared-bike stations'] },
   features: { title: 'What you get', items: [
     ['Multimodal planner', 'OpenTripPlanner 2 combines bus, cable car, rail, own bike, shared bike and walking in one itinerary, with depart/arrive time and an accessible option.'],
@@ -117,9 +122,21 @@ const addCity = lang === 'es' ? `${docs}adding-a-city/` : `${docs}adding-a-city/
       <p class="mb-3 inline-block rounded-full border border-brand/40 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.hero.kicker}</p>
       <h1 class="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">{t.hero.h1a} <span class="text-brand-dark">{t.hero.h1b}</span></h1>
       <p class="mt-6 max-w-2xl text-lg text-slate-600">{t.hero.p}</p>
-      <div class="mt-8 flex flex-wrap gap-3">
+      <div class="mt-8 flex flex-wrap items-center gap-3">
         <a href={docs} class="rounded-lg bg-brand-dark px-5 py-3 font-semibold text-white hover:bg-brand">{t.hero.cta1}</a>
-        <a href={gh} class="rounded-lg border border-slate-300 px-5 py-3 font-semibold hover:bg-slate-50">{t.hero.cta2}</a>
+      </div>
+      <div class="mt-4 flex flex-wrap items-center gap-2">
+        <span class="text-sm font-semibold text-slate-500">{t.hero.cta2}</span>
+        {heroRepos.map((r) => (
+          <a
+            href={`${gh}/${r.name}`}
+            class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 font-mono text-sm font-semibold hover:border-brand hover:bg-slate-50"
+            aria-label={`${r.name} en GitHub`}
+          >
+            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor" class="text-slate-500"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+            <span>{r.short}</span>
+          </a>
+        ))}
       </div>
     </section>
 
