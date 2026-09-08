@@ -7,7 +7,7 @@
 [![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 This repository is the **project hub**: the landing page and the developer documentation, published at
-**https://jeronimotech.github.io/opentransit/** (Spanish by default, English at `/en/`).
+**https://opentransit.tech/** (Spanish by default, English at `/en/`).
 
 opentransit takes the open data a city already publishes (GTFS, GTFS-Realtime, GBFS, OpenStreetMap) and delivers a
 web app, a mobile app and an admin panel. No API keys, no proprietary services, MIT licensed. First city on live data:
@@ -26,10 +26,10 @@ Bogotá.
 
 ## Docs
 
-- [Getting started](https://jeronimotech.github.io/opentransit/docs/getting-started/) · [Architecture](https://jeronimotech.github.io/opentransit/docs/architecture/) · [Adding a city](https://jeronimotech.github.io/opentransit/docs/adding-a-city/)
-- [Admin panel](https://jeronimotech.github.io/opentransit/docs/admin-panel/) · [Web app](https://jeronimotech.github.io/opentransit/docs/web-app/) · [Mobile app](https://jeronimotech.github.io/opentransit/docs/mobile-app/) · [Data quality](https://jeronimotech.github.io/opentransit/docs/data-quality/)
-- [API reference](https://jeronimotech.github.io/opentransit/docs/api/) · [Roadmap](https://jeronimotech.github.io/opentransit/docs/roadmap/) · [FAQ](https://jeronimotech.github.io/opentransit/docs/faq/)
-- [Contributing](https://jeronimotech.github.io/opentransit/docs/contributing/) · [Governance](https://jeronimotech.github.io/opentransit/docs/governance/) · [Security](https://jeronimotech.github.io/opentransit/docs/security/) · [License](https://jeronimotech.github.io/opentransit/docs/license/)
+- [Getting started](https://opentransit.tech/docs/getting-started/) · [Architecture](https://opentransit.tech/docs/architecture/) · [Adding a city](https://opentransit.tech/docs/adding-a-city/)
+- [Admin panel](https://opentransit.tech/docs/admin-panel/) · [Web app](https://opentransit.tech/docs/web-app/) · [Mobile app](https://opentransit.tech/docs/mobile-app/) · [Data quality](https://opentransit.tech/docs/data-quality/)
+- [API reference](https://opentransit.tech/docs/api/) · [Roadmap](https://opentransit.tech/docs/roadmap/) · [FAQ](https://opentransit.tech/docs/faq/)
+- [Contributing](https://opentransit.tech/docs/contributing/) · [Governance](https://opentransit.tech/docs/governance/) · [Security](https://opentransit.tech/docs/security/) · [License](https://opentransit.tech/docs/license/)
 
 ## Working on this site
 

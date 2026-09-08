@@ -4,7 +4,7 @@ labels: [documentation]
 body:
   - type: input
     id: page
-    attributes: { label: Page URL, placeholder: "https://jeronimotech.github.io/opentransit/docs/..." }
+    attributes: { label: Page URL, placeholder: "https://opentransit.tech/docs/..." }
     validations: { required: true }
   - type: textarea
     id: what

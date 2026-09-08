@@ -4,8 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://jeronimotech.github.io',
-  base: '/opentransit',
+  site: 'https://opentransit.tech',
   trailingSlash: 'always',
   vite: { plugins: [tailwindcss()] },
   integrations: [

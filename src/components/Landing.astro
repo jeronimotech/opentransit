@@ -2,7 +2,10 @@
 import '../styles/landing.css';
 export interface Props { lang: 'es' | 'en'; }
 const { lang } = Astro.props;
-const base = '/opentransit';
+// Derived, never hardcoded: the site moved from a github.io project path to its own
+// domain once already, and every hardcoded copy of the old host had to be chased down.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const origin = (Astro.site ?? new URL('https://opentransit.tech')).origin;
 const docs = lang === 'es' ? `${base}/docs/` : `${base}/en/docs/`;
 const otherLang = lang === 'es' ? { href: `${base}/en/`, label: 'English' } : { href: `${base}/`, label: 'Español' };
 const gh = 'https://github.com/jeronimotech';
@@ -91,11 +94,11 @@ const addCity = lang === 'es' ? `${docs}adding-a-city/` : `${docs}adding-a-city/
   <title>{t.title}</title>
   <meta name="description" content={t.desc} />
   <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
-  <link rel="alternate" hreflang="es" href={`https://jeronimotech.github.io${base}/`} />
-  <link rel="alternate" hreflang="en" href={`https://jeronimotech.github.io${base}/en/`} />
+  <link rel="alternate" hreflang="es" href={`${origin}${base}/`} />
+  <link rel="alternate" hreflang="en" href={`${origin}${base}/en/`} />
   <meta property="og:title" content={t.title} />
   <meta property="og:description" content={t.desc} />
-  <meta property="og:image" content={`https://jeronimotech.github.io${base}/shots/web-home.jpg`} />
+  <meta property="og:image" content={`${origin}${base}/shots/web-home.jpg`} />
   <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body class="bg-white text-ink antialiased">
