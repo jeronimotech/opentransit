@@ -37,7 +37,7 @@ const t = lang === 'es' ? {
   arch: { title: 'Arquitectura', p: 'Tres repositorios independientes, un enrutador por ciudad y datos abiertos como única entrada. Una instancia de la API sirve varias ciudades; cada ciudad es un archivo YAML.',
     nodes: { data: 'Datos abiertos', otp: 'OpenTripPlanner 2', api: 'opentransit-api', pg: 'PostGIS', web: 'opentransit-web', mob: 'opentransit-mobile', admin: 'admin + landing' } },
   data: { title: 'Construido sobre datos abiertos', items: [['GTFS', 'rutas, paradas, horarios'], ['GTFS-Realtime', 'posiciones, trip updates, alertas'], ['GBFS', 'bicis y patinetas compartidas'], ['OpenStreetMap', 'calles, ciclorrutas, servicios; mapa base de OpenFreeMap']] },
-  cities: { title: 'Ciudades', live: 'En vivo', bogota: 'TransMilenio, SITP y TransMiCable (GTFS + GTFS-Realtime, ~6.000 buses) y el sistema de bicicletas públicas (GBFS, 252 estaciones).', add: 'Añade tu ciudad', addp: 'Un YAML, un feed GTFS y un extracto de OpenStreetMap. Te acompañamos en el proceso.', addcta: 'Cómo añadir una ciudad' },
+  cities: { title: 'Ciudades', live: 'En vivo', bogota: 'TransMilenio, SITP y TransMiCable (GTFS + GTFS-Realtime, ~6.000 buses) y el sistema de bicicletas públicas (GBFS, 252 estaciones).', toronto: 'Metro, tranvías y buses de la TTC (GTFS + GTFS-Realtime, ~1.000 vehículos en vivo). Los identificadores de viaje del feed no coinciden con el horario publicado, así que las llegadas se emparejan por parada.', add: 'Añade tu ciudad', addp: 'Un YAML, un feed GTFS y un extracto de OpenStreetMap. Te acompañamos en el proceso.', addcta: 'Cómo añadir una ciudad' },
   repos: { title: 'Repositorios', items: [
     ['opentransit-api', 'Backend multi-tenant: GTFS, GTFS-RT, GBFS, OpenTripPlanner, configuración editable.', 'Python · FastAPI · PostGIS'],
     ['opentransit-web', 'App web (PWA), panel de administración y landing por ciudad.', 'Next.js · MapLibre'],
@@ -69,7 +69,7 @@ const t = lang === 'es' ? {
   arch: { title: 'Architecture', p: 'Three independent repositories, one router per city and open data as the only input. One API instance serves several cities; each city is a YAML file.',
     nodes: { data: 'Open data', otp: 'OpenTripPlanner 2', api: 'opentransit-api', pg: 'PostGIS', web: 'opentransit-web', mob: 'opentransit-mobile', admin: 'admin + landing' } },
   data: { title: 'Built on open data', items: [['GTFS', 'routes, stops, timetables'], ['GTFS-Realtime', 'positions, trip updates, alerts'], ['GBFS', 'shared bikes and scooters'], ['OpenStreetMap', 'streets, bike lanes, services; OpenFreeMap basemap']] },
-  cities: { title: 'Cities', live: 'Live', bogota: 'TransMilenio, SITP and TransMiCable (GTFS + GTFS-Realtime, ~6,000 buses) and the public bike system (GBFS, 252 stations).', add: 'Add your city', addp: 'One YAML, a GTFS feed and an OpenStreetMap extract. We will help you through it.', addcta: 'How to add a city' },
+  cities: { title: 'Cities', live: 'Live', bogota: 'TransMilenio, SITP and TransMiCable (GTFS + GTFS-Realtime, ~6,000 buses) and the public bike system (GBFS, 252 stations).', toronto: 'TTC subway, streetcars and buses (GTFS + GTFS-Realtime, ~1,000 vehicles live). The feed publishes trip ids the schedule does not have, so arrivals are paired by stop instead.', add: 'Add your city', addp: 'One YAML, a GTFS feed and an OpenStreetMap extract. We will help you through it.', addcta: 'How to add a city' },
   repos: { title: 'Repositories', items: [
     ['opentransit-api', 'Multi-tenant backend: GTFS, GTFS-RT, GBFS, OpenTripPlanner, editable config.', 'Python · FastAPI · PostGIS'],
     ['opentransit-web', 'Web app (PWA), admin panel and per-city landing.', 'Next.js · MapLibre'],
@@ -200,11 +200,18 @@ const addCity = lang === 'es' ? `${docs}adding-a-city/` : `${docs}adding-a-city/
     </section>
 
     <section id="cities" class="bg-slate-50 py-16">
-      <div class="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-2">
+      <div class="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-3">
         <div class="rounded-xl border border-slate-200 bg-white p-6">
           <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.live}</span></div>
           <h3 class="mt-2 text-2xl font-bold">Bogotá, Colombia</h3>
           <p class="mt-2 text-slate-600">{t.cities.bogota}</p>
+          <a href="https://bogota.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">bogota.opentransit.tech</a>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.live}</span></div>
+          <h3 class="mt-2 text-2xl font-bold">Toronto, Canada</h3>
+          <p class="mt-2 text-slate-600">{t.cities.toronto}</p>
+          <a href="https://toronto.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">toronto.opentransit.tech</a>
         </div>
         <div class="rounded-xl border border-dashed border-slate-300 p-6">
           <h3 class="text-2xl font-bold">{t.cities.add}</h3>
