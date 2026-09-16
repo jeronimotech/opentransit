@@ -15,9 +15,9 @@ Bogotá.
 
 | Repository | What | Stack |
 |---|---|---|
-| [opentransit-api](https://github.com/jeronimotech/opentransit-api) | Multi-tenant backend: city registry, GTFS ingest, live GTFS-RT, bike-share (GBFS), routing via OpenTripPlanner, runtime-editable config | Python · FastAPI · PostGIS · OpenTripPlanner 2 |
+| [opentransit-api](https://github.com/jeronimotech/opentransit-api) | Multi-tenant backend: city registry, GTFS ingest, live GTFS-RT, bike-share (GBFS), paid parking and park & ride (CDS/MDS), taxi / ride-hailing, routing via OpenTripPlanner, city geocoders, conversational assistant, anonymous pushes for scheduled trips, runtime-editable config | Python · FastAPI · PostGIS · OpenTripPlanner 2 |
 | [opentransit-web](https://github.com/jeronimotech/opentransit-web) | Web app (PWA), admin panel, per-city landing | Next.js · TypeScript · MapLibre |
-| [opentransit-mobile](https://github.com/jeronimotech/opentransit-mobile) | iOS / Android app | Flutter · MapLibre |
+| [opentransit-mobile](https://github.com/jeronimotech/opentransit-mobile) | iOS / Android app, Apple Watch, Live Activities, scheduled-trip reminders | Flutter · Swift · MapLibre |
 
 <p>
   <img src="docs-screenshots/landing-desktop.png" alt="Project landing page (desktop)" width="640">

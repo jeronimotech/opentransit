@@ -20,4 +20,4 @@ description: Qué es opentransit, cómo está construido y cómo ponerlo en marc
 | [opentransit-web](https://github.com/jeronimotech/opentransit-web) | App web (PWA) + panel de administración + landing por ciudad | Next.js 15 · React 19 · TypeScript · Tailwind · MapLibre GL |
 | [opentransit-mobile](https://github.com/jeronimotech/opentransit-mobile) | App iOS/Android | Flutter 3.41 · maplibre_gl · Riverpod · go_router |
 
-Todo bajo licencia MIT. Primera ciudad en producción de datos: **Bogotá** (TransMilenio, SITP, TransMiCable y el sistema de bicicletas públicas).
+Todo bajo licencia MIT. Primera ciudad en producción de datos: **Bogotá** (TransMilenio, SITP, TransMiCable, bicicletas públicas, zonas de parqueo pago con cupos en vivo y el geocodificador de Catastro).
