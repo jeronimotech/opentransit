@@ -20,4 +20,4 @@ description: Qué es opentransit, cómo está construido y cómo ponerlo en marc
 | [opentransit-web](https://github.com/jeronimotech/opentransit-web) | App web (PWA) + panel de administración + landing por ciudad | Next.js 15 · React 19 · TypeScript · Tailwind · MapLibre GL |
 | [opentransit-mobile](https://github.com/jeronimotech/opentransit-mobile) | App iOS/Android | Flutter 3.41 · maplibre_gl · Riverpod · go_router |
 
-Todo bajo licencia MIT. Primera ciudad en producción de datos: **Bogotá** (TransMilenio, SITP, TransMiCable, bicicletas públicas, zonas de parqueo pago con cupos en vivo y el geocodificador de Catastro).
+Todo bajo licencia MIT. En producción en nueve ciudades de cinco continentes: **Bogotá** (TransMilenio, SITP, TransMiCable, bicicletas públicas, zonas de parqueo pago con cupos en vivo y el geocodificador de Catastro), **Toronto**, **Boston**, **Santiago de Chile**, **Roma**, **Lisboa**, **Casablanca**, **Kuala Lumpur** y **Brisbane**, cada una en `<ciudad>.opentransit.tech`. La interfaz está en siete idiomas: español, inglés, portugués, francés, italiano, malayo y árabe.

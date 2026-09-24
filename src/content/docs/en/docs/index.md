@@ -20,4 +20,4 @@ description: What opentransit is, how it is built and how to run it for your cit
 | [opentransit-web](https://github.com/jeronimotech/opentransit-web) | Web app (PWA) + admin panel + per-city landing | Next.js 15 · React 19 · TypeScript · Tailwind · MapLibre GL |
 | [opentransit-mobile](https://github.com/jeronimotech/opentransit-mobile) | iOS/Android app | Flutter 3.41 · maplibre_gl · Riverpod · go_router |
 
-All MIT licensed. First city running on live data: **Bogotá** (TransMilenio, SITP, TransMiCable and the public bike system).
+All MIT licensed. In production in nine cities on five continents: **Bogotá** (TransMilenio, SITP, TransMiCable, public bikes, paid-parking zones with live spaces and the cadastre's geocoder), **Toronto**, **Boston**, **Santiago de Chile**, **Rome**, **Lisbon**, **Casablanca**, **Kuala Lumpur** and **Brisbane**, each at `<city>.opentransit.tech`. The interface comes in seven languages: Spanish, English, Portuguese, French, Italian, Malay and Arabic.
