@@ -44,7 +44,7 @@ const t = lang === 'es' ? {
   arch: { title: 'Arquitectura', p: 'Tres repositorios independientes, un enrutador por ciudad y datos abiertos como única entrada. Una instancia de la API sirve varias ciudades; cada ciudad es un archivo YAML.',
     nodes: { data: 'Datos abiertos', otp: 'OpenTripPlanner 2', api: 'opentransit-api', pg: 'PostGIS', web: 'opentransit-web', mob: 'opentransit-mobile', admin: 'admin + landing' } },
   data: { title: 'Construido sobre datos abiertos', items: [['GTFS', 'rutas, paradas, horarios'], ['GTFS-Realtime', 'posiciones, trip updates, alertas'], ['GBFS', 'bicis y patinetas compartidas'], ['CDS / MDS', 'zonas de parqueo con cupos, políticas y geografías (Open Mobility Foundation)'], ['OpenStreetMap', 'calles, ciclorrutas, servicios; mapa base de OpenFreeMap'], ['Datos de la ciudad', 'geocodificador oficial, barrios y localidades cuando la ciudad los publica']] },
-  cities: { title: 'Ciudades', live: 'En vivo', bogota: 'TransMilenio, SITP y TransMiCable (GTFS + GTFS-Realtime, ~6.000 buses), bicicletas públicas (GBFS, 252 estaciones), 819 zonas de parqueo pago con cupos en vivo (CDS) y el geocodificador de Catastro.', toronto: 'Metro, tranvías y buses de la TTC (GTFS + GTFS-Realtime, ~1.000 vehículos en vivo) y Bike Share Toronto (GBFS, más de mil estaciones). Las llegadas se emparejan por parada porque el feed no comparte identificadores con el horario.', add: 'Añade tu ciudad', addp: 'Un YAML, un feed GTFS y un extracto de OpenStreetMap. Te acompañamos en el proceso.', addcta: 'Cómo añadir una ciudad' },
+  cities: { title: 'Ciudades', live: 'En vivo', scheduled: 'Horarios', bogota: 'TransMilenio, SITP y TransMiCable (GTFS + GTFS-Realtime, ~6.000 buses), bicicletas públicas (GBFS, 252 estaciones), 819 zonas de parqueo pago con cupos en vivo (CDS) y el geocodificador de Catastro.', toronto: 'Metro, tranvías y buses de la TTC (GTFS + GTFS-Realtime, ~1.000 vehículos en vivo) y Bike Share Toronto (GBFS, más de mil estaciones). Las llegadas se emparejan por parada porque el feed no comparte identificadores con el horario.', brisbane: 'Trenes, buses, CityCats y el G:link de TransLink en todo South East Queensland (GTFS + GTFS-Realtime: vehículos, llegadas y alertas).', roma: 'Metro, tranvías y autobuses de ATAC con los datos de Roma Mobilità (GTFS + GTFS-Realtime: posiciones, llegadas y avisos).', lisboa: 'Las 941 carreiras de Carris Metropolitana en los 18 municipios del área metropolitana (GTFS + posiciones y avisos en tiempo real).', kualalumpur: 'LRT, MRT, monorriel y buses Rapid KL con los tres GTFS de data.gov.my fusionados en uno, y posiciones de buses en vivo.', casablanca: 'Tramway y busway de Casa Tramway a partir de un GTFS comunitario; horarios programados mientras Marruecos no publique tiempo real.', boston: 'Metro, buses, commuter rail y ferries de la MBTA (GTFS + GTFS-Realtime) y Bluebikes (GBFS, 600+ estaciones).', santiago: 'Metro, buses Red y trenes EFE con el GTFS del DTPM, y Bike Santiago (GBFS). Horarios programados: Chile aún no publica GTFS-Realtime abierto.', brisbaneName: 'Brisbane, Australia', romaName: 'Roma, Italia', lisboaName: 'Lisboa, Portugal', kualalumpurName: 'Kuala Lumpur, Malasia', casablancaName: 'Casablanca, Marruecos', bostonName: 'Boston, Estados Unidos', santiagoName: 'Santiago, Chile', add: 'Añade tu ciudad', addp: 'Un YAML, un feed GTFS y un extracto de OpenStreetMap. Te acompañamos en el proceso.', addcta: 'Cómo añadir una ciudad' },
   repos: { title: 'Repositorios', items: [
     ['opentransit-api', 'Backend multi-tenant: GTFS, GTFS-RT, GBFS, CDS/MDS, OpenTripPlanner, geocodificación, asistente, pushes anónimos, configuración editable.', 'Python · FastAPI · PostGIS'],
     ['opentransit-web', 'App web (PWA), panel de administración y landing por ciudad.', 'Next.js · MapLibre'],
@@ -83,7 +83,7 @@ const t = lang === 'es' ? {
   arch: { title: 'Architecture', p: 'Three independent repositories, one router per city and open data as the only input. One API instance serves several cities; each city is a YAML file.',
     nodes: { data: 'Open data', otp: 'OpenTripPlanner 2', api: 'opentransit-api', pg: 'PostGIS', web: 'opentransit-web', mob: 'opentransit-mobile', admin: 'admin + landing' } },
   data: { title: 'Built on open data', items: [['GTFS', 'routes, stops, timetables'], ['GTFS-Realtime', 'positions, trip updates, alerts'], ['GBFS', 'shared bikes and scooters'], ['CDS / MDS', 'parking zones with spaces, policies and geographies (Open Mobility Foundation)'], ['OpenStreetMap', 'streets, bike lanes, services; OpenFreeMap basemap'], ['City data', 'the official geocoder, neighbourhoods and districts where the city publishes them']] },
-  cities: { title: 'Cities', live: 'Live', bogota: 'TransMilenio, SITP and TransMiCable (GTFS + GTFS-Realtime, ~6,000 buses), public bikes (GBFS, 252 stations), 819 paid-parking zones with live spaces (CDS) and the cadastre\'s geocoder.', toronto: 'TTC subway, streetcars and buses (GTFS + GTFS-Realtime, ~1,000 vehicles live) and Bike Share Toronto (GBFS, over a thousand stations). Arrivals are paired by stop because the feed shares no trip ids with the schedule.', add: 'Add your city', addp: 'One YAML, a GTFS feed and an OpenStreetMap extract. We will help you through it.', addcta: 'How to add a city' },
+  cities: { title: 'Cities', live: 'Live', scheduled: 'Scheduled', bogota: 'TransMilenio, SITP and TransMiCable (GTFS + GTFS-Realtime, ~6,000 buses), public bikes (GBFS, 252 stations), 819 paid-parking zones with live spaces (CDS) and the cadastre\'s geocoder.', toronto: 'TTC subway, streetcars and buses (GTFS + GTFS-Realtime, ~1,000 vehicles live) and Bike Share Toronto (GBFS, over a thousand stations). Arrivals are paired by stop because the feed shares no trip ids with the schedule.', brisbane: 'TransLink trains, buses, CityCats and the G:link across South East Queensland (GTFS + GTFS-Realtime: vehicles, arrivals and alerts).', roma: 'ATAC metro, trams and buses with Roma Mobilità\'s data (GTFS + GTFS-Realtime: positions, arrivals and alerts).', lisboa: 'Carris Metropolitana\'s 941 lines across the 18 municipalities of the metro area (GTFS + live positions and alerts).', kualalumpur: 'LRT, MRT, monorail and Rapid KL buses from data.gov.my\'s three GTFS feeds merged into one, plus live bus positions.', casablanca: 'Casa Tramway\'s tramway and busway from a community GTFS; scheduled times until Morocco publishes realtime data.', boston: 'MBTA subway, buses, commuter rail and ferries (GTFS + GTFS-Realtime) and Bluebikes (GBFS, 600+ stations).', santiago: 'Metro, Red buses and EFE trains from DTPM\'s GTFS, plus Bike Santiago (GBFS). Scheduled times: Chile has no open GTFS-Realtime yet.', brisbaneName: 'Brisbane, Australia', romaName: 'Rome, Italy', lisboaName: 'Lisbon, Portugal', kualalumpurName: 'Kuala Lumpur, Malaysia', casablancaName: 'Casablanca, Morocco', bostonName: 'Boston, United States', santiagoName: 'Santiago, Chile', add: 'Add your city', addp: 'One YAML, a GTFS feed and an OpenStreetMap extract. We will help you through it.', addcta: 'How to add a city' },
   repos: { title: 'Repositories', items: [
     ['opentransit-api', 'Multi-tenant backend: GTFS, GTFS-RT, GBFS, CDS/MDS, OpenTripPlanner, geocoding, assistant, anonymous pushes, editable config.', 'Python · FastAPI · PostGIS'],
     ['opentransit-web', 'Web app (PWA), admin panel and per-city landing.', 'Next.js · MapLibre'],
@@ -226,6 +226,48 @@ const addCity = lang === 'es' ? `${docs}adding-a-city/` : `${docs}adding-a-city/
           <h3 class="mt-2 text-2xl font-bold">Toronto, Canada</h3>
           <p class="mt-2 text-slate-600">{t.cities.toronto}</p>
           <a href="https://toronto.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">toronto.opentransit.tech</a>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.live}</span></div>
+          <h3 class="mt-2 text-2xl font-bold">{t.cities.brisbaneName}</h3>
+          <p class="mt-2 text-slate-600">{t.cities.brisbane}</p>
+          <a href="https://brisbane.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">brisbane.opentransit.tech</a>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.live}</span></div>
+          <h3 class="mt-2 text-2xl font-bold">{t.cities.romaName}</h3>
+          <p class="mt-2 text-slate-600">{t.cities.roma}</p>
+          <a href="https://roma.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">roma.opentransit.tech</a>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.live}</span></div>
+          <h3 class="mt-2 text-2xl font-bold">{t.cities.lisboaName}</h3>
+          <p class="mt-2 text-slate-600">{t.cities.lisboa}</p>
+          <a href="https://lisboa.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">lisboa.opentransit.tech</a>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.live}</span></div>
+          <h3 class="mt-2 text-2xl font-bold">{t.cities.kualalumpurName}</h3>
+          <p class="mt-2 text-slate-600">{t.cities.kualalumpur}</p>
+          <a href="https://kualalumpur.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">kualalumpur.opentransit.tech</a>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-slate-400"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.scheduled}</span></div>
+          <h3 class="mt-2 text-2xl font-bold">{t.cities.casablancaName}</h3>
+          <p class="mt-2 text-slate-600">{t.cities.casablanca}</p>
+          <a href="https://casablanca.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">casablanca.opentransit.tech</a>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-brand"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.live}</span></div>
+          <h3 class="mt-2 text-2xl font-bold">{t.cities.bostonName}</h3>
+          <p class="mt-2 text-slate-600">{t.cities.boston}</p>
+          <a href="https://boston.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">boston.opentransit.tech</a>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center gap-2"><span class="inline-block h-2.5 w-2.5 rounded-full bg-slate-400"></span><span class="text-xs font-semibold uppercase tracking-wide text-brand-dark">{t.cities.scheduled}</span></div>
+          <h3 class="mt-2 text-2xl font-bold">{t.cities.santiagoName}</h3>
+          <p class="mt-2 text-slate-600">{t.cities.santiago}</p>
+          <a href="https://santiago.opentransit.tech" class="mt-4 inline-block font-semibold text-brand-dark hover:underline">santiago.opentransit.tech</a>
         </div>
         <div class="rounded-xl border border-dashed border-slate-300 p-6">
           <h3 class="text-2xl font-bold">{t.cities.add}</h3>
