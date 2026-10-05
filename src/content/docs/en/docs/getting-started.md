@@ -3,7 +3,7 @@ title: Getting started
 description: Run the API, the router, the web app and the mobile app on your machine.
 ---
 
-Everything runs locally on real data. Bogotá is the first configured city; the same flow works for any city with GTFS (see [Adding a city](/opentransit/en/docs/adding-a-city/)).
+Everything runs locally on real data. Bogotá is the first configured city; the same flow works for any city with GTFS (see [Adding a city](/en/docs/adding-a-city/)).
 
 ## Requirements
 
@@ -64,5 +64,5 @@ flutter run --dart-define=MOCK=true                          # no backend
 
 ## Next
 
-- Change fares, links or maintenance mode from the [admin panel](/opentransit/en/docs/admin-panel/) without redeploying.
-- Read the [data quality notes](/opentransit/en/docs/data-quality/) before trusting timetables, fares or accessibility.
+- Change fares, links or maintenance mode from the [admin panel](/en/docs/admin-panel/) without redeploying.
+- Read the [data quality notes](/en/docs/data-quality/) before trusting timetables, fares or accessibility.

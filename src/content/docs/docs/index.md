@@ -7,10 +7,10 @@ description: Qué es opentransit, cómo está construido y cómo ponerlo en marc
 
 ## Por dónde empezar
 
-- [Primeros pasos](/opentransit/docs/getting-started/): levanta la pila completa en tu máquina en unos 10 minutos.
-- [Arquitectura](/opentransit/docs/architecture/): qué hace cada repositorio y cómo fluye el dato.
-- [Añadir una ciudad](/opentransit/docs/adding-a-city/): un archivo YAML y un feed GTFS bastan.
-- [Referencia de la API](/opentransit/docs/api/): el contrato que consumen la web y el móvil.
+- [Primeros pasos](/docs/getting-started/): levanta la pila completa en tu máquina en unos 10 minutos.
+- [Arquitectura](/docs/architecture/): qué hace cada repositorio y cómo fluye el dato.
+- [Añadir una ciudad](/docs/adding-a-city/): un archivo YAML y un feed GTFS bastan.
+- [Referencia de la API](/docs/api/): el contrato que consumen la web y el móvil.
 
 ## Los tres repositorios
 

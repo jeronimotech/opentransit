@@ -7,10 +7,10 @@ description: What opentransit is, how it is built and how to run it for your cit
 
 ## Where to start
 
-- [Getting started](/opentransit/en/docs/getting-started/): run the full stack locally in about 10 minutes.
-- [Architecture](/opentransit/en/docs/architecture/): what each repository does and how data flows.
-- [Adding a city](/opentransit/en/docs/adding-a-city/): one YAML file and a GTFS feed.
-- [API reference](/opentransit/en/docs/api/): the contract the web and mobile apps consume.
+- [Getting started](/en/docs/getting-started/): run the full stack locally in about 10 minutes.
+- [Architecture](/en/docs/architecture/): what each repository does and how data flows.
+- [Adding a city](/en/docs/adding-a-city/): one YAML file and a GTFS feed.
+- [API reference](/en/docs/api/): the contract the web and mobile apps consume.
 
 ## The three repositories
 

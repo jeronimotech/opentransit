@@ -47,7 +47,7 @@ agencies:                       # GTFS agency_id → component + colour
 - `mobility.bike_share[]`: one or more bike/scooter systems with a GBFS feed (below).
 - `landing`: content of the city's public landing page.
 
-All of it can be edited later from the [admin panel](/opentransit/en/docs/admin-panel/) without a redeploy.
+All of it can be edited later from the [admin panel](/en/docs/admin-panel/) without a redeploy.
 
 ## 3. OpenTripPlanner inputs
 

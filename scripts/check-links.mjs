@@ -1,7 +1,13 @@
 // Fails when an internal link in dist/ points to a page or asset that does not exist.
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-const dist = resolve('dist'); const base = '/opentransit/';
+// The base comes from the Astro config, not from a constant here. It used to be '/opentransit/'
+// for GitHub Pages; moving the site to the apex domain in "Site: move to opentransit.tech" dropped
+// `base` and left this file expecting the old prefix, so every internal link read as "outside base"
+// and the check reported 872 broken links on a site that was serving fine.
+const { default: astroConfig } = await import('../astro.config.mjs');
+const base = `/${(astroConfig.base ?? '').replace(/^\/|\/$/g, '')}/`.replace('//', '/');
+const dist = resolve('dist');
 const html = []; (function walk(d) { for (const f of readdirSync(d)) { const p = join(d, f); statSync(p).isDirectory() ? walk(p) : f.endsWith('.html') && html.push(p); } })(dist);
 let bad = 0;
 for (const file of html) {

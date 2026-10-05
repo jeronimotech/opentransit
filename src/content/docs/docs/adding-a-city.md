@@ -47,7 +47,7 @@ Los **componentes** (`trunk`, `feeder`, `dual`, `zonal`, `cable`, `rail`, `other
 - `mobility.bike_share[]`: uno o varios sistemas de bicis/patinetas con feed GBFS (ver abajo).
 - `landing`: contenido de la landing pública de la ciudad.
 
-Todo esto se puede editar después desde el [panel de administración](/opentransit/docs/admin-panel/) sin redesplegar.
+Todo esto se puede editar después desde el [panel de administración](/docs/admin-panel/) sin redesplegar.
 
 ## 3. Inputs de OpenTripPlanner
 

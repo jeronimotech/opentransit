@@ -3,7 +3,7 @@ title: Primeros pasos
 description: Levanta la API, el enrutador, la web y la app móvil en tu máquina.
 ---
 
-Todo corre en local con datos reales. La primera ciudad configurada es Bogotá; el mismo flujo sirve para cualquier ciudad con GTFS (ver [Añadir una ciudad](/opentransit/docs/adding-a-city/)).
+Todo corre en local con datos reales. La primera ciudad configurada es Bogotá; el mismo flujo sirve para cualquier ciudad con GTFS (ver [Añadir una ciudad](/docs/adding-a-city/)).
 
 ## Requisitos
 
@@ -64,5 +64,5 @@ flutter run --dart-define=MOCK=true                          # sin backend
 
 ## Qué hacer después
 
-- Cambia tarifas, enlaces o el modo mantenimiento desde el [panel de administración](/opentransit/docs/admin-panel/) sin redesplegar.
-- Revisa las [notas de calidad del dato](/opentransit/docs/data-quality/) antes de confiar en horarios, tarifas o accesibilidad.
+- Cambia tarifas, enlaces o el modo mantenimiento desde el [panel de administración](/docs/admin-panel/) sin redesplegar.
+- Revisa las [notas de calidad del dato](/docs/data-quality/) antes de confiar en horarios, tarifas o accesibilidad.
